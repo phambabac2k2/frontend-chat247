@@ -2,8 +2,16 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import { ChatAppPage, SignInPage, SignUpPage } from "./pages";
 import { Toaster } from "sonner";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import { useThemeStore } from "./stores/useThemStore";
+import { useEffect } from "react";
 
 function App() {
+  const { isDarkMode, setTheme } = useThemeStore();
+
+  useEffect(() => {
+    setTheme(isDarkMode);
+  }, [isDarkMode]);
+
   return (
     <>
       <Toaster richColors />

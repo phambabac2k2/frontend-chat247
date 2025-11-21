@@ -36,6 +36,7 @@ import NewGroupChatModal from "@/modals/NewGroupChatModal";
 import GroupChatList from "../chat/GroupChatList";
 import AddFriendModal from "@/modals/AddFriendModal";
 import DirectMessageList from "../chat/DirectMessageList";
+import { useThemeStore } from "@/stores/useThemStore";
 
 const data = {
   user: {
@@ -162,6 +163,8 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { isDarkMode, toggleDarkMode } = useThemeStore();
+
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
@@ -178,8 +181,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <div className="flex items-center gap-2">
                     <Sun className="size-4 text-white/80" />
                     <Switch
-                      checked={true}
-                      onCheckedChange={() => {}}
+                      checked={isDarkMode}
+                      onCheckedChange={toggleDarkMode}
                       className="data-[state=checked]:bg-background/80"
                     />
 

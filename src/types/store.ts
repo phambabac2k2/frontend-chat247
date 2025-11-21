@@ -20,3 +20,9 @@ export interface AuthState {
   logOut: () => Promise<void>;
   refresh: () => Promise<void>;
 }
+
+export interface ThemeState {
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
+  setTheme: (isDark: boolean) => void;
+}
