@@ -1,0 +1,17 @@
+import { cn } from "@/lib/utils";
+import React from "react";
+
+const StatusBadge = ({ status }: { status: "online" | "offline" }) => {
+  return (
+    <div
+      className={cn(
+        "absolute -bottom-0.5 -right-0.5 size-4 rounded-full",
+        status === "online" && "status-online",
+        status === "offline" && "status-offline"
+      )}
+    >
+    </div>
+  );
+};
+
+export default StatusBadge;

@@ -33,10 +33,11 @@ import {
 import { Switch } from "../ui/switch";
 import CreateNewChat from "../chat/CreateNewChat";
 import NewGroupChatModal from "@/modals/NewGroupChatModal";
-import GroupChatList from "../chat/GroupChatList";
+// import GroupChatList from "../chat/GroupChatList";
 import AddFriendModal from "@/modals/AddFriendModal";
 import DirectMessageList from "../chat/DirectMessageList";
 import { useThemeStore } from "@/stores/useThemStore";
+import GroupChatList from "../chat/GroupChatList";
 
 const data = {
   user: {
@@ -216,7 +217,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             Friend
           </SidebarGroupLabel>
           <SidebarGroupAction title="New Add Friend" className="cursor-pointer">
-            <AddFriendModal />
+            {/* <AddFriendModal /> */}
           </SidebarGroupAction>
           <SidebarGroupContent>
             <DirectMessageList />
