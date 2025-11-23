@@ -47,7 +47,7 @@ export const authService = {
 
   logOut: async () => {
     const res = await api.post(
-      "/auth/logout",
+      "/auth/signout",
       {},
       {
         withCredentials: true,
