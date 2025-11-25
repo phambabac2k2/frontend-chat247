@@ -11,7 +11,7 @@ const GroupChatAvatar = ({ participants, type }: GroupChatAvatarProps) => {
   const visibleParticipants = participants.slice(0, 4);
 
   return (
-    <div className="relative flex -space-x-2 *data-[slot=avatar]:ring-background *:data-[slot=avatar]:ring-2">
+    <div className="relative flex -space-x-2 *:ring-2 *:ring-white">
       {visibleParticipants.map((member, index) => (
         <UserAvatar
           key={member._id || `participant-${index}`}
