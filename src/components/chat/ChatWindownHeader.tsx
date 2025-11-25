@@ -1,4 +1,3 @@
-import { Separator } from "@radix-ui/react-separator";
 import { SidebarTrigger } from "../ui/sidebar";
 import type { Conversation } from "@/types/chat";
 import UserAvatar from "./UserAvatar";
@@ -6,6 +5,7 @@ import { useChatStore } from "@/stores/useChatStore";
 import { useAuthStore } from "@/stores/useAuthStore";
 import StatusBadge from "./StatusBadge";
 import GroupChatAvatar from "./GroupChatAvatar";
+import { Separator } from "../ui/separator";
 
 const ChatWindownHeader = ({chat}: {chat?: Conversation}) => {
   const {conversations, activeConversationId} = useChatStore();

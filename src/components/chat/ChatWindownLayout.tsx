@@ -7,7 +7,7 @@ import ChatWindownBody from "./ChatWindownBody";
 import MessageInput from "./MessageInput";
 
 const ChatWindownLayout = () => {
-  const {activeConversationId, conversations, messageLoading: loading, messages} = useChatStore();
+  const {activeConversationId, conversations, messageLoading: loading} = useChatStore();
    const list: any[] = Array.isArray(conversations)
      ? conversations
      : (conversations as any)?.conversations || [];
@@ -24,7 +24,7 @@ const ChatWindownLayout = () => {
     <SidebarInset className="flex flex-col h-full flex-1 overflow-hidden rounded-sm shadow-md">
       <ChatWindownHeader /> 
       <div className="flex-1 overflow-y-auto bg-primary-foreground">
-        <ChatWindownBody />
+        <ChatWindownBody  />
       </div>
       <MessageInput />
     </SidebarInset>

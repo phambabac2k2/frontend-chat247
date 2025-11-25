@@ -35,6 +35,7 @@ export const useChatStore = create<ChatState>()(
       fetchMessages: async (conversationId: string) => {
         const { activeConversationId, messages } = get();
         const { user } = useAuthStore.getState();
+        console.log("Fetching messages for conversationId:", conversationId);
 
         const convoId = conversationId ?? activeConversationId;
         if (!convoId) return;
@@ -47,8 +48,7 @@ export const useChatStore = create<ChatState>()(
 
         set({ messageLoading: true });
         try {
-          const { messages: newMessages, cursor } =
-            await chatService.fetchMessages(convoId, nextCursor);
+          const { messages: newMessages, cursor } = await chatService.fetchMessages(convoId, nextCursor);
           const processed = newMessages.map((msg) => ({
             ...msg,
             isOwn: msg.senderId === user?._id,
@@ -70,8 +70,8 @@ export const useChatStore = create<ChatState>()(
               },
             };
           });
-        } catch (error) {
-          console.error("Failed to fetch messages:", error);
+        } finally {
+          set({ messageLoading: false });
         }
       },
     }),
